@@ -1,63 +1,29 @@
-
-from SomeMetods import *
+from CreateStruct import *
+from VoxelMetods import *
+from PointMethods import *
+from ScanMetods import *
 
 createScanFolders()
 
-def parsePoint(line):
-    point = []
-    for i in line:
-        point.append(float(i))
-    return point
-
-voxelsSize = [5, 5, 5]
-
-def createVoxrls():
-    voxels = []
-    with open("sourse/VoxelCenter.txt", "r") as voxCenter:
-        for line in voxCenter:
-            line = line.rstrip()
-            x = line.split(",")
-            voxels.append(parsePoint(x))
-    return voxels
-
-voxels = createVoxrls()
-print(voxels)
-
-def createBorder(voxel, voxelsSize):
-    border = [int(voxel[0])]
-    x = voxel[1]
-    y = voxel[2]
-    z = voxel[3]
-    border.append(x - voxelsSize / 2)
-    border.append(x + voxelsSize / 2)
-    border.append(y - voxelsSize / 2)
-    border.append(y + voxelsSize / 2)
-    border.append(z - voxelsSize / 2)
-    border.append(z + voxelsSize / 2)
-    return border
-
-def checkPoint(point, voxel):
-    x = point[0]
-    y = point[1]
-    z = point[2]
-    w = voxel[1]
-    e = voxel[2]
-    s = voxel[3]
-    n = voxel[4]
-    d = voxel[5]
-    u = voxel[6]
-    if ((x>w and x<e) and (y>s and y<n) and (z>d and z<u)):
-        return True
-    else:
-        return False
+vox = createVoxrlsDic()
+bord = createBorderDict(vox)
 
 
 
+def structSan(scanName, bord):
+    scan = readScan(scanName)
+    for p in scan:
+        for k,v in bord.items():
+            if (checkPoint(p, v)):
+                filePath = "Point_EXTR/" + scanName.split(".")[0] + "/" + str(k) + ".txt"
+                file = open(filePath, "a")
+                s = ""
+                for i in p:
+                    s += str(i)
+                    s += ","
+                s = s[:-1] + "\n"
+                file.write(s)
+                file.close()
 
-def createScanFolders():
-    creatrFolder("Point_EXTR")
-    scanList = os.listdir("sourse/Scan")
-    for scan in scanList:
-        scanDir = scan.split(".")[0]
-        path = "Point_EXTR/" + scanDir
-        creatrFolder(path)
+structSan("sc230529.txt",bord)
+structSan("sc280720.txt",bord)

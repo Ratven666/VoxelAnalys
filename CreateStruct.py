@@ -10,3 +10,4 @@ def createScanFolders():
         scanDir = scan.split(".")[0]
         path = "Point_EXTR/" + scanDir
         creatrFolder(path)
+
