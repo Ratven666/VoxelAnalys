@@ -19,5 +19,5 @@ def readScan(scanName, scanPath="sourse/Scan/"):
 # for i in scan:
 #     print(i)
 
-# scanList = createScanList()
+# scanList = createScanList("sourse/")
 # print(scanList)

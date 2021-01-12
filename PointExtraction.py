@@ -1,14 +1,6 @@
 from CreateStruct import *
 from VoxelMetods import *
-from PointMethods import *
 from ScanMetods import *
-
-createScanFolders()
-
-vox = createVoxrlsDic()
-bord = createBorderDict(vox)
-
-
 
 def structSan(scanName, bord):
     scan = readScan(scanName)
@@ -25,5 +17,4 @@ def structSan(scanName, bord):
                 file.write(s)
                 file.close()
 
-structSan("sc230529.txt",bord)
-structSan("sc280720.txt",bord)
+
