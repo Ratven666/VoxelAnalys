@@ -1,5 +1,3 @@
-from CreateStruct import *
-from VoxelMetods import *
 from ScanMetods import *
 
 def structSan(scanName, bord):

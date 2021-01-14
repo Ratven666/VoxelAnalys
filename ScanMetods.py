@@ -13,11 +13,3 @@ def readScan(scanName, scanPath="sourse/Scan/"):
     return scan
 
 
-
-# scan = readScan("sc280720.txt")
-#
-# for i in scan:
-#     print(i)
-
-# scanList = createScanList("sourse/")
-# print(scanList)

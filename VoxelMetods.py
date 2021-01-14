@@ -33,12 +33,7 @@ def createBorderDict(voxDict):
     for k, v in voxDict.items():
         bord[k] = createBorderOfVox(v)
     return bord
-#
-# vox = createVoxrlsDic()
-# bord = createBorderDict(vox)
-# for k, v in bord.items():
-#     #   bord.append(createBorderOfVox(v))
-#     print(k, v)
+
 
 
 

@@ -1,6 +1,10 @@
+from CreateStruct import *
 from PlaneAprox import *
 from PointExtraction import *
 import os
+
+from VoxelMetods import *
+
 
 def allSourseScanStruct(bord, dirPath = "sourse/Scan/"):
     createScanFolders()
